@@ -5,11 +5,23 @@ body {
   color: #333;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
 header {
   text-align: center;
   padding: 3rem 1rem;
   background: linear-gradient(135deg, #007bff, #6610f2);
   color: white;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border-bottom: 2px solid #CDA434;
+  color: #FFD700;
 }
 
 nav {
@@ -19,6 +31,22 @@ nav {
   background: white;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark-mode nav {
+  background: #1a1a1a;
+  border-bottom: 1px solid #CDA434;
+}
+
+body.dark-mode nav a {
+  color: #CDA434;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+body.dark-mode nav a:hover {
+  color: #FFD700;
 }
 
 .project-grid {
@@ -36,8 +64,27 @@ nav {
   transition: transform 0.2s;
 }
 
+body.dark-mode .project-card {
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .project-card h3 {
+  color: #FFD700;
+}
+
+body.dark-mode .project-card p {
+  color: #999;
+}
+
 .project-card:hover {
   transform: translateY(-5px);
+}
+
+body.dark-mode .project-card:hover {
+  border-color: #CDA434;
+  box-shadow: 0 8px 20px rgba(205, 164, 52, 0.4);
 }
 
 button {
@@ -50,6 +97,30 @@ button {
   transition: background 0.2s;
 }
 
+body.dark-mode button {
+  background: #CDA434;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
 button:hover {
   background: #0056b3;
+}
+
+body.dark-mode button:hover {
+  background: #FFD700;
+}
+
+footer {
+  background: #f8f9fa;
+  color: #333;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+body.dark-mode footer {
+  background: #1a1a1a;
+  color: #CDA434;
+  border-top: 2px solid #CDA434;
 }
