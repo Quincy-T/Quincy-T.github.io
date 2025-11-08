@@ -93,14 +93,18 @@ body.dark-mode .profile-image-placeholder:hover {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .profile-image-placeholder span {
   display: none;
+  z-index: 1;
 }
 
-.profile-image-placeholder:empty::before {
-  content: 'Your Photo Here';
+.profile-image-placeholder.empty span {
+  display: flex;
 }
 
 @media (max-width: 768px) {

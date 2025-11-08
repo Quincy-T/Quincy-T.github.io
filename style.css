@@ -33,15 +33,12 @@ body.dark-mode {
 .photo-row {
   display: flex;
   height: 196px;
-  width: 300%;
+  will-change: transform;
 }
 
-.photo-row.row-1 {
-  animation: scrollMosaicRight 60s linear infinite;
-}
-
+.photo-row.row-1,
 .photo-row.row-2 {
-  animation: scrollMosaicLeft 60s linear infinite;
+  animation: scrollMosaic 90s linear infinite;
 }
 
 .photo-row.paused {
@@ -74,21 +71,12 @@ body.dark-mode {
   min-width: 280px;
 }
 
-@keyframes scrollMosaicRight {
+@keyframes scrollMosaic {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-66.666%);
-  }
-}
-
-@keyframes scrollMosaicLeft {
-  0% {
-    transform: translateX(-66.666%);
-  }
-  100% {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 
