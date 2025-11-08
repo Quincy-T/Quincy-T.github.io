@@ -5,12 +5,18 @@ body {
   color: #333;
 }
 
-/* Photo Banner Styles */
+/* Dark mode styles */
+body.dark-mode {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+/* Photo Banner Styles - Collage Background */
 .photo-banner {
   width: 100%;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 0;
@@ -18,9 +24,13 @@ body {
 }
 
 .photo-collage {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   height: 100%;
-  animation: scroll 60s linear infinite;
+  width: 200%;
+  animation: scrollCollage 90s linear infinite;
+  gap: 2px;
 }
 
 .photo-collage.paused {
@@ -28,13 +38,38 @@ body {
 }
 
 .photo-collage img {
+  width: 100%;
   height: 100%;
-  width: auto;
   object-fit: cover;
-  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity 0.3s;
 }
 
-@keyframes scroll {
+.photo-collage img:hover {
+  opacity: 1;
+}
+
+/* Different sized tiles for variety */
+.photo-collage img:nth-child(3),
+.photo-collage img:nth-child(7),
+.photo-collage img:nth-child(12),
+.photo-collage img:nth-child(18) {
+  grid-column: span 2;
+}
+
+.photo-collage img:nth-child(5),
+.photo-collage img:nth-child(15),
+.photo-collage img:nth-child(25) {
+  grid-row: span 2;
+}
+
+.photo-collage img:nth-child(10),
+.photo-collage img:nth-child(30) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@keyframes scrollCollage {
   0% {
     transform: translateX(0);
   }
@@ -44,8 +79,8 @@ body {
 }
 
 .play-pause-btn {
-  position: absolute;
-  bottom: 15px;
+  position: fixed;
+  top: 15px;
   right: 15px;
   background: rgba(205, 164, 52, 0.9);
   color: #0a0a0a;
@@ -54,9 +89,10 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1.2rem;
-  z-index: 10;
+  z-index: 1001;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 .play-pause-btn:hover {
@@ -64,44 +100,38 @@ body {
   transform: scale(1.05);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background: #0a0a0a;
-  color: #f0f0f0;
-}
-
-body {
-  padding-top: 0;
-}
-
 header {
   text-align: center;
   padding: 3rem 1rem;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   color: white;
-  min-height: 300px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
+  background: transparent;
 }
 
 header h1,
 header p {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 1rem 2rem;
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
   display: inline-block;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   margin: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode header h1,
 body.dark-mode header p {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: #FFD700;
+  border: 1px solid rgba(205, 164, 52, 0.2);
 }
 
 nav {
@@ -111,6 +141,8 @@ nav {
   background: white;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
 }
 
 nav a {
@@ -138,6 +170,16 @@ body.dark-mode nav a {
 
 body.dark-mode nav a:hover {
   color: #FFD700;
+}
+
+main {
+  position: relative;
+  z-index: 5;
+  background: #f8f9fa;
+}
+
+body.dark-mode main {
+  background: #0a0a0a;
 }
 
 .project-grid {
@@ -208,6 +250,8 @@ footer {
   text-align: center;
   padding: 2rem;
   margin-top: 3rem;
+  position: relative;
+  z-index: 10;
 }
 
 body.dark-mode footer {
