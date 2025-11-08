@@ -27,28 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Photo collage functionality
-  const playPauseBtn = document.getElementById('playPauseBtn');
+  // Photo collage functionality - duplicate images for seamless loop
   const photoRows = document.querySelectorAll('.photo-row');
-
-  if (playPauseBtn && photoRows.length > 0) {
-    let isPlaying = true;
-    
-    // Duplicate images in each row for seamless loop
-    photoRows.forEach(row => {
-      const images = row.innerHTML;
-      row.innerHTML = images + images;
-    });
-    
-    playPauseBtn.onclick = () => {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        photoRows.forEach(row => row.classList.remove('paused'));
-        playPauseBtn.textContent = '⏸️'; // Pause icon
-      } else {
-        photoRows.forEach(row => row.classList.add('paused'));
-        playPauseBtn.textContent = '▶️'; // Play icon
-      }
-    };
-  }
+  photoRows.forEach(row => {
+    const images = row.innerHTML;
+    row.innerHTML = images + images;
+  });
 });
