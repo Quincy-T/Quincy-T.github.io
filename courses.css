@@ -1,0 +1,109 @@
+#courses {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+#courses h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.semester {
+  margin-bottom: 2.5rem;
+}
+
+.semester h3 {
+  font-size: 1.5rem;
+  color: #6610f2;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.course-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  font-weight: 600;
+  color: #007bff;
+  cursor: help;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.course-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: white;
+}
+
+/* Tooltip */
+.course-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  white-space: normal;
+  width: 200px;
+  font-size: 0.875rem;
+  font-weight: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  line-height: 1.4;
+}
+
+/* Tooltip arrow */
+.course-item::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1001;
+}
+
+.course-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-15px);
+}
+
+.course-item:hover::before {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  
+  .course-item::after {
+    width: 150px;
+    font-size: 0.75rem;
+  }
+}
