@@ -14,9 +14,9 @@ body.dark-mode {
 /* Photo Banner Styles - Mosaic Collage Background */
 .photo-banner {
   width: 100%;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
@@ -25,19 +25,33 @@ body.dark-mode {
 
 .photo-collage {
   display: flex;
-  height: 300px;
-  width: 300%;
-  animation: scrollMosaic 120s linear infinite;
+  flex-direction: column;
+  height: 400px;
+  gap: 8px;
 }
 
-.photo-collage.paused {
+.photo-row {
+  display: flex;
+  height: 196px;
+  width: 300%;
+}
+
+.photo-row.row-1 {
+  animation: scrollMosaicRight 60s linear infinite;
+}
+
+.photo-row.row-2 {
+  animation: scrollMosaicLeft 60s linear infinite;
+}
+
+.photo-row.paused {
   animation-play-state: paused;
 }
 
-.photo-collage img {
-  height: 300px;
-  min-width: 400px;
-  max-width: 500px;
+.photo-row img {
+  height: 196px;
+  min-width: 250px;
+  max-width: 350px;
   object-fit: cover;
   flex-shrink: 0;
   opacity: 0.9;
@@ -45,27 +59,36 @@ body.dark-mode {
   margin-right: 8px;
 }
 
-.photo-collage img:hover {
+.photo-row img:hover {
   opacity: 1;
   transform: scale(1.02);
   z-index: 1;
 }
 
 /* Vary widths for visual interest */
-.photo-collage img:nth-child(3n) {
-  min-width: 500px;
+.photo-row img:nth-child(3n) {
+  min-width: 300px;
 }
 
-.photo-collage img:nth-child(5n) {
-  min-width: 350px;
+.photo-row img:nth-child(5n) {
+  min-width: 280px;
 }
 
-@keyframes scrollMosaic {
+@keyframes scrollMosaicRight {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-66.666%);
+  }
+}
+
+@keyframes scrollMosaicLeft {
+  0% {
+    transform: translateX(-66.666%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -97,7 +120,7 @@ header {
   position: relative;
   z-index: 100;
   color: white;
-  min-height: 300px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

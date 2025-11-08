@@ -27,23 +27,27 @@ toggle.onclick = () => {
 
 // Photo collage functionality
 const playPauseBtn = document.getElementById('playPauseBtn');
-const photoCollage = document.querySelector('.photo-collage');
+const photoRows = document.querySelectorAll('.photo-row');
 
-if (playPauseBtn && photoCollage) {
+if (playPauseBtn && photoRows.length > 0) {
   let isPlaying = true;
   
-  // Duplicate images for seamless loop
-  const images = photoCollage.innerHTML;
-  photoCollage.innerHTML = images + images;
+  // Duplicate images in each row for seamless loop
+  photoRows.forEach(row => {
+    const images = row.innerHTML;
+    row.innerHTML = images + images;
+  });
   
   playPauseBtn.onclick = () => {
     isPlaying = !isPlaying;
-    if (isPlaying) {
-      photoCollage.classList.remove('paused');
-      playPauseBtn.textContent = '⏸️'; // Pause icon
-    } else {
-      photoCollage.classList.add('paused');
-      playPauseBtn.textContent = '▶️'; // Play icon
-    }
+    photoRows.forEach(row => {
+      if (isPlaying) {
+        row.classList.remove('paused');
+        playPauseBtn.textContent = '⏸️'; // Pause icon
+      } else {
+        row.classList.add('paused');
+        playPauseBtn.textContent = '▶️'; // Play icon
+      }
+    });
   };
 }
