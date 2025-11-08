@@ -18,3 +18,26 @@ toggle.onclick = () => {
     toggle.textContent = '🌙 Dark Mode';
   }
 };
+
+// Photo collage functionality
+const playPauseBtn = document.getElementById('playPauseBtn');
+const photoCollage = document.querySelector('.photo-collage');
+
+if (playPauseBtn && photoCollage) {
+  let isPlaying = true;
+  
+  // Duplicate images for seamless loop
+  const images = photoCollage.innerHTML;
+  photoCollage.innerHTML = images + images;
+  
+  playPauseBtn.onclick = () => {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      photoCollage.classList.remove('paused');
+      playPauseBtn.textContent = '⏸️'; // Pause icon
+    } else {
+      photoCollage.classList.add('paused');
+      playPauseBtn.textContent = '▶️'; // Play icon
+    }
+  };
+}
