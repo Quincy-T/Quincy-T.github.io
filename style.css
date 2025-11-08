@@ -36,9 +36,13 @@ body.dark-mode {
   will-change: transform;
 }
 
-.photo-row.row-1,
+.photo-row.row-1 {
+  animation: scrollMosaic 120s linear infinite;
+}
+
 .photo-row.row-2 {
-  animation: scrollMosaic 90s linear infinite;
+  animation: scrollMosaic 120s linear infinite;
+  animation-delay: -40s;
 }
 
 .photo-row.paused {
