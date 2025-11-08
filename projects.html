@@ -34,7 +34,7 @@
   </div>
   
   <header>
-    <h1>Quincy Tordil</h1>
+    <h1>Hi, I am Quincy Tordil</h1>
     <p>Welcome to my portfolio</p>
   </header>
 
@@ -47,25 +47,51 @@
 
   <main>
     <section id="projects">
-      <h2>Projects</h2>
+      <div class="projects-header">
+        <h2>My Projects</h2>
+        <p>A collection of engineering projects showcasing robotics, embedded systems, and software development</p>
+      </div>
+      
       <div class="project-grid">
-        <div class="project-card">
-          <h3>Air Hockey Robot</h3>
-          <p>Computer vision + XY gantry + Jetson Nano.</p>
+        <div class="project-card featured">
+          <div class="project-tag">Senior Design</div>
+          <h3>Autonomous Air Hockey Robot</h3>
+          <p class="project-meta">Computer Vision, Controls, PCB Design, Object Tracking</p>
+          <p class="project-description">Designed and built an autonomous air hockey robot that uses computer vision to track the puck in real time and an XY gantry system to position and move the mallet, enabling dynamic, human-versus-robot gameplay.</p>
+          <div class="project-date">September 2025 – Present</div>
           <button onclick="window.open('https://github.com/julia-laine-11/senior_design_team_18', '_blank')">View on GitHub</button>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <main>
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
         <div class="project-card">
+          <div class="project-tag">GenAI</div>
+          <h3>CLI for Trustworthy Hugging Face Models</h3>
+          <p class="project-meta">Python, Hugging Face API, GitHub API</p>
+          <p class="project-description">Developed a Python CLI tool to evaluate Hugging Face models, scoring trustworthiness across metrics. Implemented parallelized metric calculation, static type checking, and structured outputs.</p>
+          <div class="project-date">August 2025 – September 2025</div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Embedded Systems</div>
+          <h3>Thermostat and Home Security</h3>
+          <p class="project-meta">C Programming, Microcontrollers, SPI, PWM, ADC</p>
+          <p class="project-description">Implemented a system using a microcontroller that detects room temperature to send on/off signals to an HVAC system, plus door sensors that trigger an alarm if the password isn't entered within a set time.</p>
+          <div class="project-date">October 2024 – December 2024</div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">EPICS</div>
           <h3>ISBVI Tuner</h3>
-          <p>Design, blah blah blah</p>
-          <button onclick="window.open('https://github.com/julia-laine-11/senior_design_team_18', '_blank')">View on GitHub</button>
+          <p class="project-meta">Wiring, Soldering, Sensor Validation</p>
+          <p class="project-description">Worked with the Indiana School of the Blind and Visually Impaired to create an instrument tuner that provided audible feedback on tuning. Compared our product to existing ones to improve the design and results.</p>
+          <div class="project-date">January 2023 – May 2023</div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">EPICS</div>
+          <h3>ISBVI LEAP (Learning Equations Across Platforms)</h3>
+          <p class="project-meta">Soldering, PCB Testing, Sensor Validation</p>
+          <p class="project-description">Created a device that digitized inputs from a Perkins brailler and uploaded them to a webserver. This assists new teachers to more easily read what students type as they continue to learn braille. Conducted sensor testing, built wiring harnesses, and served as project archivist.</p>
+          <div class="project-date">August 2022 – May 2023</div>
         </div>
       </div>
     </section>
