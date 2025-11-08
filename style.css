@@ -37,12 +37,12 @@ body.dark-mode {
 }
 
 .photo-row.row-1 {
-  animation: scrollMosaic 120s linear infinite;
+  animation: scrollMosaic 80s linear infinite;
 }
 
 .photo-row.row-2 {
-  animation: scrollMosaic 120s linear infinite;
-  animation-delay: -40s;
+  animation: scrollMosaic 80s linear infinite;
+  animation-delay: -27s;
 }
 
 .photo-row.paused {

@@ -40,14 +40,12 @@ if (playPauseBtn && photoRows.length > 0) {
   
   playPauseBtn.onclick = () => {
     isPlaying = !isPlaying;
-    photoRows.forEach(row => {
-      if (isPlaying) {
-        row.classList.remove('paused');
-        playPauseBtn.textContent = '⏸️'; // Pause icon
-      } else {
-        row.classList.add('paused');
-        playPauseBtn.textContent = '▶️'; // Play icon
-      }
-    });
+    if (isPlaying) {
+      photoRows.forEach(row => row.classList.remove('paused'));
+      playPauseBtn.textContent = '⏸️'; // Pause icon
+    } else {
+      photoRows.forEach(row => row.classList.add('paused'));
+      playPauseBtn.textContent = '▶️'; // Play icon
+    }
   };
 }
