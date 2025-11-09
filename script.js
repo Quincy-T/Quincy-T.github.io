@@ -34,3 +34,25 @@ document.addEventListener('DOMContentLoaded', () => {
     row.innerHTML = images + images;
   });
 });
+
+// Lightbox functionality for project photos
+function openLightbox(img) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  
+  if (lightbox && lightboxImg && lightboxCaption) {
+    lightbox.classList.add('active');
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.alt;
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
