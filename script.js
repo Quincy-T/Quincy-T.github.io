@@ -8,7 +8,7 @@ if (savedTheme === 'dark') {
 document.addEventListener('DOMContentLoaded', () => {
   // Add a light/dark mode toggle
   const toggle = document.createElement('button');
-  toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
   toggle.style.position = 'fixed';
   toggle.style.bottom = '20px';
   toggle.style.right = '20px';
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', currentTheme);
     
     if (document.body.classList.contains('dark-mode')) {
-      toggle.textContent = '☀️ Light Mode';
+      toggle.textContent = 'Light Mode';
     } else {
-      toggle.textContent = '🌙 Dark Mode';
+      toggle.textContent = 'Dark Mode';
     }
   };
 
